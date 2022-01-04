@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>"Guess the number!"</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<h1 class="center">Guess the number!</h1>
+
+<button class="btn" type="button" id="exitButton" onclick="exitGame()">EXIT</button>
+
+
+<section id="conditions">
+    <button class="btn" type="button" id="settingsButton">SETTINGS</button>
+
+    <form id="settings" style="display: none;">
+        <label for="rangeUser">Range from 1 to - </label>
+        <input type="text" class="fld" placeholder="1 - 200" name="rangeUser" id="rangeUser" required pattern="[1-9][0-9]|1[0-9][0-9]|200"><br>
+        <label for="attemptUser">NUMBER OF ATTEMPTS - </label>
+        <input type="text" class="fld" placeholder="1 - 15" name="attemptUser" id="attemptUser" required pattern="[1-9]|1[0-5]"><br>
+        <button type="submit" class="btn">ACCEPT</button>
+    </form>
+
+    <p>
+        Lets play a game! You will need to guess a number <span id="settingsDefault">between 1 and 100 in 5 tries.</span><br>
+        You can start the game or change the settings for the range of numbers and allowed attempts.<br>
+    </p>
+    <p class="center">
+        Good luck!
+    </p>
+
+    <button class="btn" type="button" id="playButton" onclick="closeForm()">LET PLAY!</button>
+</section>
+
+
+<section id ="play" style="display: none;">
+    <p>
+        We have selected a random number between 1 and <span id="rangeDefault">100</span>. See if you
+        can guess it in <span id="attemptDefault">5</span> attempts. We'll tell you if your guess was cold or hot.
+    </p>
+
+    <form id = "game">
+        <label for="guess"></label>
+        <input type="text" class="fld" placeholder="Enter number in range" name="guess" id="guess" required pattern="[^1-9]">
+        <button type="submit" class="btn" id="guessGen">GENERATE</button>
+    </form>
+
+    <div id="resultParas">
+        <p id="guesses"></p>
+        <p id="lastResult" style="background-color: white;"></p>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿html {
+    font-family: 'Akrobat', sans-serif;
+    background-color: #1D1B26;
+}
+
+body {
+    width: 50%;
+    max-width: 800px;
+    min-width: 480px;
+    margin: 0 auto;
+    color: #fcfcfe;
+}
+
+h1 {
+    width: auto;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+p {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    margin-top: 0.3em; /* Отступ сверху */
+    margin-bottom: 0.3em; /* Отступ снизу */
+}
+
+.btn {
+    width: 150px;
+    height: 30px;
+    background: #ffcd1f;
+    border-radius: 40px;
+    font-weight: 100;
+    font-size: 18px;
+    font-family: cursive;
+    color: black;
+    line-height: 22px;
+}
+.btn:hover {
+    background-color: #1ccc19;
+    color: black;
+}
+.btn:disabled{
+    background-color: #5c5a62;
+    color: #706d6c;
+}
+.fld {
+    border-radius: 40px;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    font-size: 14px;
+}
+.fld:focus {
+    outline: none;
+    border-color: #1ccc19;
+    border-width: 2px;
+    border-style:solid;
+}
+.fld:active, :hover {
+    outline: 0;
+    outline-offset: 0;
+}
+
+.lastResult {
+    padding: 3px;
+}
+
+.center {
+    text-align: center;
+}
