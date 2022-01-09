@@ -1,0 +1,13 @@
+{
+  "name": "closures",
+  "version": "1.0.0",
+  "main": "closureTask1.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "jest": "^27.4.7"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
