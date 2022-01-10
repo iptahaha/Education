@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>"Guess the number!"</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="container">
+<main class="game">
+    <h1 class="game-header">Guess the" number!</h1>
+    <button class="game-exit__btn" type="button" id="exitButton" onclick="exitGame()">EXIT</button>
+
+    <section class="game-rules" id="rules">
+        <button class="game-rules__btn" type="button" id="settingsButton">SETTINGS</button>
+
+        <form class="game-rules__form" id="settings" style="display: none;">
+            <label class="game-rules__item">Range from 1 to - <input type="text"  class="game-rules__fld" placeholder="max 200" id="rangeUser" required pattern="[1-9][0-9]|1[0-9][0-9]|200"></label><br>
+            <label class="game-rules__item">NUMBER OF ATTEMPTS - <input type="text"  class="game-rules__fld" placeholder="1 - 15" id="attemptUser" required pattern="[1-9]|1[0-5]"></label><br>
+            <button class="game-rules__btn" type="submit">ACCEPT</button>
+        </form>
+
+        <p class="game-rules__info">
+            Lets play a game! You will need to guess a number
+            <span id="settingsDefault">between 1 and 100 in 5 tries.</span><br>
+            You can start the game or change the settings for the range of numbers and allowed attempts.<br>
+        </p>
+        <p class="game-rules__wish">
+            Good luck!
+        </p>
+
+        <button class="game-play__btn" type="button" id="playButton" onclick="closeForm()">LET PLAY!</button>
+    </section>
+
+    <section class="generator" id="play" style="display: none;">
+        <p class="generator__info">
+            We have selected a random number between 1 and <span id="rangeDefault">100</span>. See if you
+            can guess it in <span id="attemptDefault">5</span> attempts. We'll tell you if your guess was cold or hot.
+        </p>
+
+        <form class="generator__form" id="game">
+            <label><input type="text" class="generator__fld" placeholder="Enter number" id="guess" required pattern="[^1-9]"></label>
+            <button type="submit" class="generator__btn" id="guessGen">GENERATE</button>
+        </form>
+
+        <div class="generator__results" id="resultParas">
+            <p class="generator__results-guesses" id="guesses"></p>
+            <p class="generator__results-last" id="lastResult"></p>
+        </div>
+    </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
