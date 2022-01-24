@@ -1,0 +1,30 @@
+{
+  "name": "09-appCalculator",
+  "version": "1.0.0",
+  "main": "calkulator.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "7.16.7",
+    "@babel/preset-env": "7.16.7",
+    "browser-sync": "2.27.7",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "8.0.0",
+    "gulp-concat": "2.6.1",
+    "gulp-debug": "4.0.0",
+    "gulp-file-include": "2.3.0",
+    "gulp-remove-code": "^3.0.4",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.47.0",
+    "through2": "4.0.2"
+  },
+  "devDependencies": {
+    "@types/gulp": "^4.0.9",
+    "jest": "^27.4.7"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build",
+    "test": "jest"
+  }
+}
