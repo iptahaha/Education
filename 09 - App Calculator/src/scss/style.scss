@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+$main-color: #EAEAEA;
+$d-acc: #F25C2AFF;
+$l-acc: #FCAF3BFF;
+$bg-color: #FEEAD2FF;
+$gray-text: #7a7091;
+
+html {
+  background: linear-gradient(180deg, $bg-color, white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font: 0.8em 'Raleway', sans-serif;
+  font-weight: 200;
+}
+
+/*--------------------
+Calculator
+--------------------*/
+.calc {
+  max-width: 800px;
+  box-shadow: 5px 5px 20px rgba(black, 0.5);
+  margin: 50px auto;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 15px;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -62%);
+}
+
+/*--------------------
+screen
+--------------------*/
+
+.calc__screen {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+  background-color: black;
+  text-align: right;
+  color: white;
+  word-wrap: break-word;
+  font-family: 'Arial', sans-serif;
+  flex: 0 0 auto;
+
+  //#screen {
+  //  width: 280px;
+  //}
+
+  &-input {
+    min-height: 60px;
+    max-height: max-content;
+    font-size: 16px;
+    color: $gray-text;
+  }
+
+  &-output {
+    padding-top: 10px;
+    font-size: 28px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-height: 1.5em;
+    transition: max-height 0.1s, z-index;
+    z-index: 0;
+
+    &:hover {
+      white-space: normal;
+      word-wrap: break-word;
+      max-height: 16em;
+      transition: max-height 2s, z-index;
+      z-index: 1;
+    }
+    &:empty:before {
+      content:attr(data-placeholder);
+      color: $gray-text;
+    }
+  }
+
+  .mode {
+    position: absolute;
+    bottom: 0.9em;
+    left: 0;
+
+    &__change {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: black;
+      border: solid 0.1px;
+
+      &:hover {
+        background-color: rgba($d-acc, 0.8);
+        color: black;
+      }
+
+      &:active, &.active {
+        background-color: black;
+        color: $d-acc;
+      }
+    }
+  }
+}
+
+/*--------------------
+Buttons
+--------------------*/
+
+.calc__btn {
+  display: flex;
+  flex-direction: row-reverse;
+  min-height: 300px;
+  background-color: $main-color;
+
+  .btn {
+    padding: 11px 10px;
+    border: rgba(0, 0, 0, 0.1) solid 0.1px;
+    background: transparent;
+    color: $gray-text;
+    outline: none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    //border-radius: 5px;
+    font-size: 1.4em;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);;
+    }
+
+    &:active, &.active {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  .simple-calk {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 75%;
+    max-width: 240px;
+
+    &__controls {
+      display: flex;
+      flex-direction: row;
+      height: 20%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.1);
+
+      & .btn {
+        width: 100%;
+        min-width: 80px;
+        height: 100%;
+      }
+    }
+
+    &__digits {
+      display: flex;
+      flex-direction: row-reverse;
+      flex-wrap: wrap;
+      height: 80%;
+
+      & .btn {
+        width: 33.33333%;
+        min-width: 80px;
+      }
+      & .zero-btn {
+        width: 66.66666%;
+      }
+    }
+  }
+
+  &-algebraic {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    max-width: 80px;
+    background: linear-gradient(135deg, $l-acc, $d-acc);
+
+    & .btn {
+      color: white;
+      width: 100%;
+      min-width: 80px;
+      height: 20%;
+    }
+  }
+
+  .engineer-calk {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-width: 320px;
+    background-color: rgba(0, 0, 0, 0.1);
+
+    & .btn {
+      width: 25%;
+      min-width: 80px;
+      height: 20%;
+    }
+
+    & .first {
+      background-color: aquamarine;
+      display: block;
+    }
+
+    & .second {
+      background-color: darksalmon;
+      display: none;
+    }
+  }
+}
+
