@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Paint</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body>
+<main class="app">
+    <canvas class="app__canvas" id="canvas"></canvas>
+
+    <section class="app__controls">
+        <button class="app__controls-save" id="save">Save</button>
+        <button class="app__controls-clean" id="clean">Clear</button>
+    </section>
+
+    <section class="app__tools">
+        <div class="app__tools-color">
+            <label for="color">COLOR</label><input type="color" id="color" value="#feed85">
+        </div>
+        <div class="app__tools-size">
+            <label for="size" id="size-value">SIZE: 25</label>
+            <input type="range" min="1" max="50" value="25" id="size">
+        </div>
+    </section>
+</main>
+<script src="../js/script.js"></script>
+</body>
+</html>
