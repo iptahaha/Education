@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Get VISA race</title>
+</head>
+<body>
+<main class="content">
+  <section class="settings">
+      <form class="settings__form form" id="form">
+        <div class="form__items">
+          <label class="form__items--label">
+            <span>Name</span>
+            <input type="text" class="form__items--input" id="name" value="" placeholder="Enter name..." required pattern="[a-zA-Z_]\w*">
+            <button type="button" class="form__items--btn btn" id="name_btn">Generate</button>
+          </label>
+          <label class="form__items--label">
+            <span>Balance</span>
+            <input type="text" class="form__items--input" id="balance" value="" placeholder="Enter balance..." required pattern="[0-9]{4}">
+            <button type="button" class="form__items--btn btn" id="balance_btn">Generate</button>
+          </label>
+          <label class="form__items--label">
+            <span>Age</span>
+            <input type="text" class="form__items--input" id="age" value="" placeholder="Enter age..." required pattern="[0-9]{3}">
+            <button type="button" class="form__items--btn btn" id="age_btn">Generate</button>
+          </label>
+          <label class="form__items--label">
+            <span>Documents</span>
+            <input type="text" class="form__items--input" id="documents" value="" placeholder="Enter documents..."  required pattern="[a-zA-Z_]\w*">
+            <button type="button" class="form__items--btn btn" id="documents_btn">Generate</button>
+          </label>
+          <label class="form__items--label">
+            <span>English level</span>
+            <input type="text" class="form__items--input" id="engLevel" value="" placeholder="Enter english level..." required pattern="[Aa]0|[Bb]1|[Bb]2|[Cc]1">
+            <button type="button" class="form__items--btn btn" id="engLevel_btn">Generate</button>
+          </label>
+        </div>
+        <div class="form__buttons">
+          <div class="form__buttons--container">
+            <button class="form__buttons--salad btn" id="allGenerate_btn" type="button">Generate All</button>
+            <button class="form__buttons--blue btn" id="addCandidate_btn" type="button" disabled>Add candidate</button>
+            <button class="form__buttons--beige btn" id="init_btn" type="button" disabled>Init</button>
+            <button class="form__buttons--green btn" id="race_btn" type="button" disabled>Race</button>
+            <button class="form__buttons--red btn" id="clear_btn" type="button">Clear</button>
+          </div>
+        </div>
+      </form>
+    <div class="settings__info" id="raceInfo">
+    </div>
+  </section>
+  <section class="race hidden" id="race">
+    <table>
+      <tr>
+        <th class="table__thead-th">RACE!</th>
+        <td class="table__tbody-td">Racer1</td>
+        <td class="table__tbody-td">Racer2</td>
+        <td class="table__tbody-td">Racer3</td>
+        <td class="table__tbody-td">Racer4</td>
+        <td class="table__tbody-td">Racer5</td>
+      </tr>
+      <tr>
+        <td>Names</td>
+        <td rowspan=6 colspan=5><canvas id="canvas">
+          Your browser does not support the HTML5 canvas.</canvas></td>
+      </tr>
+      <tr>
+        <td>Balance</td>
+      </tr>
+      <tr>
+        <td>Age</td>
+      </tr>
+      <tr>
+        <td>Documents</td>
+      </tr>
+      <tr>
+        <td>Language level</td>
+      </tr>
+    </table>
+    <div id='result'></div>
+  </section>
+</main>
+
+</body>
+</html>

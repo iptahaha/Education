@@ -1,0 +1,164 @@
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+.btn {
+  margin: 10px;
+  height: 40px;
+  min-width: 80px;
+  padding: 3px;
+  color: black;
+  background-color: mediumseagreen;
+  border: transparent solid 2px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    background-color: transparent;
+    border: black solid 2px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  &:active {
+    background-color: lightgreen;
+    border: black solid 2px;
+    box-shadow: none;
+  }
+
+  &:disabled {
+    background-color: gray;
+    color: dimgray;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+.settings {
+  display: block;
+  background-color: lightgray;
+  min-width: 600px;
+  width: 40%;
+  min-height: 100vh;
+  height: 100%;
+  padding: 20px;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__info {
+    width: 100px;
+    text-align: left;
+    color: black;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+
+    &--label {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: right;
+      color: saddlebrown;
+
+      span {
+        margin-left: 50px;
+        width: 150px;
+        text-align: left;
+      }
+    }
+
+    &--input {
+      min-width: 300px;
+      width: 100%;
+      height: 40px;
+      border-radius: 10px;
+      border: none;
+      text-indent: 10px;
+    }
+
+    &--btn {
+      margin-left: 20px;
+      width: 100px;
+    }
+  }
+
+  &__buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+
+    &--container {
+      width: 300px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 8px;
+      height: auto;
+      width: 100px;
+    }
+
+    &--salad {
+      background-color: greenyellow;
+    }
+
+    &--blue {
+      background-color: lightseagreen;
+    }
+
+    &--beige {
+      background-color: beige;
+    }
+
+    &--green {
+      background-color: mediumspringgreen;
+    }
+
+    &--red {
+      background-color: indianred;
+    }
+  }
+}
+
+.race {
+margin: 40px;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+canvas {
+  border:5px solid #d3d3d3;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
