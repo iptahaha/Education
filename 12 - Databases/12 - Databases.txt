@@ -1,0 +1,100 @@
+Задания по SQL
+Даны две таблицы:
+● Список улиц - Street (Id, Name)
+● Cписок жильцов - Person (Id, FirstName, LastName, Age, Id_Street)
+Задания:
+1. Вывести общее число жителей
+2. Вывести средний возраст жителей
+3. Вывести отсортированный по алфавиту список фамилий без повторений
+4. Вывести список фамилий, с указанием количества повторений этих фамилий в
+общем списке
+5. Вывести фамилии, которые содержат в середине букву «б»
+6. Вывести список «бомжей»
+7. Вывести список несовершеннолетних, проживающих на проспекте Правды
+8. Вывести упорядоченный по алфавиту список всех улиц с указанием, сколько
+жильцов живёт на улице
+9. Вывести список улиц, название которых состоит из 6-ти букв
+10. Вывести список улиц с количеством жильцов на них меньше 3
+___________________________________________________________________________
+
+CREATE DATABASE database;
+USE database;
+
+CREATE TABLE Streets (
+    StreetID INT PRIMARY KEY AUTO_INCREMENT ,
+    streetName VARCHAR (50)
+);
+CREATE TABLE People (
+    PersonId INT PRIMARY KEY AUTO_INCREMENT,
+    PersonFirstName VARCHAR (50),
+    PersonLastName VARCHAR (50),
+    PersonAge VARCHAR (3),
+    Id_Street INT,
+    FOREIGN KEY (Id_Street) REFERENCES Streets (StreetID)
+);
+
+INSERT INTO Streets (streetName) VALUES ('Правды');
+INSERT INTO Streets (streetName) VALUES ('Неравды');
+INSERT INTO Streets (streetName) VALUES ('Садовая');
+INSERT INTO Streets (streetName) VALUES ('Несадовая');
+INSERT INTO Streets (streetName) VALUES ('Звенигородская');
+INSERT INTO Streets (streetName) VALUES ('Маршала Рыбалко');
+INSERT INTO Streets (streetName) VALUES ('Дальнеповоротная');
+INSERT INTO Streets (streetName) VALUES ('Механозалипская');
+INSERT INTO Streets (streetName) VALUES ('Северная');
+INSERT INTO Streets (streetName) VALUES ('Центральная');
+INSERT INTO Streets (streetName) VALUES ('Владимирская');
+INSERT INTO Streets (streetName) VALUES ('Невладимирская');
+
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Борис', 'Нребенщиков', '28', '1;);
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Семён', 'Слепаков', '82', '1');
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Николай', 'Первый', '32', '2');
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Йожик', 'Втумане', '72', '2');
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Константин', 'Константин', '1', '0');
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Нина', 'Иванова', '35', '3');
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Аркадий', 'Райкин', '27', '3');
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Йетти', 'Илинет', '41', '4');
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Ирина', 'Пугачева', '46', '0');
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Августина', 'Поигралова', '36', '6');
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Андрей', 'Серый', '40', '7');
+
+_____________________________________________________________________________________________
+1. 
+SELECT COUNT(*) FROM People  ;
+
+2.
+SELECT AVG(PersonAge) FROM People ;
+
+3.
+SELECT DISTINCT PersonLastName FROM People ORDER BY PersonLastName ;
+
+4.
+SELECT PersonLastName, COUNT(*) FROM People GROUP BY PersonLastName ;
+
+5.
+SELECT PersonLastName FROM People WHERE PersonLastName LIKE '_%б%_';
+
+6.
+SELECT * FROM People WHERE Id_Street IS NULL ;
+
+7.
+SELECT People.* 
+FROM People 
+JOIN Streets ON People.Id_Street = Streets.StreetID
+WHERE Streets.streetName LIKE '%Правды%' AND People.PersonAge < 18 ;
+
+8.
+SELECT Streets.streetId, Streets.streetName, COUNT(People.personID) 
+FROM Streets 
+JOIN People ON Streets.streetId = People.Id_Street 
+GROUP BY Streets.streetId, Streets.streetName
+
+9.
+SELECT * FROM Streets WHERE LENGTH(streetName) = 6 ;
+
+10.
+SELECT Streets.StreetID, Streets.streetName 
+FROM Streets 
+JOIN People ON Streets.StreetID = People.Id_Street
+GROUP BY Streets.StreetID, Streets.streetName
+HAVING COUNT(People.PersonId) < 3 ;
