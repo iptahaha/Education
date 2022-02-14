@@ -1,0 +1,26 @@
+{
+  "name": "12_databases",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "devDependencies": {
+    "mysql2": "2.3.3"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "task1": "node app.js 1",
+    "task2": "node app.js 2",
+    "task3": "node app.js 3",
+    "task4": "node app.js 4",
+    "task5": "node app.js 5",
+    "task6": "node app.js 6",
+    "task7": "node app.js 7",
+    "task8": "node app.js 8",
+    "task9": "node app.js 9",
+    "task10": "node app.js 10"
+  },
+  "dependencies": {
+    "dotenv": "16.0.0",
+    "sqlite3": "^5.0.2"
+  }
+}

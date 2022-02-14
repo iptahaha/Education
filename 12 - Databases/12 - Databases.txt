@@ -33,30 +33,30 @@ CREATE TABLE People (
     FOREIGN KEY (Id_Street) REFERENCES Streets (StreetID)
 );
 
-INSERT INTO Streets (streetName) VALUES ('Правды');
-INSERT INTO Streets (streetName) VALUES ('Неравды');
-INSERT INTO Streets (streetName) VALUES ('Садовая');
-INSERT INTO Streets (streetName) VALUES ('Несадовая');
-INSERT INTO Streets (streetName) VALUES ('Звенигородская');
-INSERT INTO Streets (streetName) VALUES ('Маршала Рыбалко');
-INSERT INTO Streets (streetName) VALUES ('Дальнеповоротная');
-INSERT INTO Streets (streetName) VALUES ('Механозалипская');
-INSERT INTO Streets (streetName) VALUES ('Северная');
-INSERT INTO Streets (streetName) VALUES ('Центральная');
-INSERT INTO Streets (streetName) VALUES ('Владимирская');
-INSERT INTO Streets (streetName) VALUES ('Невладимирская');
+INSERT INTO Streets (streetName) VALUES ("Правды");
+INSERT INTO Streets (streetName) VALUES ("Неравды");
+INSERT INTO Streets (streetName) VALUES ("Садовая");
+INSERT INTO Streets (streetName) VALUES ("Несадовая");
+INSERT INTO Streets (streetName) VALUES ("Звенигородская");
+INSERT INTO Streets (streetName) VALUES ("Маршала Рыбалко");
+INSERT INTO Streets (streetName) VALUES ("Дальнеповоротная");
+INSERT INTO Streets (streetName) VALUES ("Механозалипская");
+INSERT INTO Streets (streetName) VALUES ("Северная");
+INSERT INTO Streets (streetName) VALUES ("Центральная");
+INSERT INTO Streets (streetName) VALUES ("Владимирская");
+INSERT INTO Streets (streetName) VALUES ("Невладимирская");
 
-INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Борис', 'Нребенщиков', '28', '1;);
-INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Семён', 'Слепаков', '82', '1');
-INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Николай', 'Первый', '32', '2');
-INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Йожик', 'Втумане', '72', '2');
-INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Константин', 'Константин', '1', '0');
-INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Нина', 'Иванова', '35', '3');
-INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Аркадий', 'Райкин', '27', '3');
-INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Йетти', 'Илинет', '41', '4');
-INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Ирина', 'Пугачева', '46', '0');
-INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Августина', 'Поигралова', '36', '6');
-INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ('Андрей', 'Серый', '40', '7');
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ("Борис", "Нребенщиков", "28", "1");
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ("Семён", "Слепаков", "82", "1");
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ("Николай", "Первый", "32", "2");
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ("Йожик", "Втумане", "72", "2");
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ("Константин", "Константин", "1", "0");
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ("Нина", "Иванова", "35", "3");
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ("Аркадий", "Райкин", "27", "3");
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ("Йетти", "Илинет", "41", "4");
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ("Ирина", "Пугачева", "46", "0");
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ("Августина", "Поигралова", "36", "6");
+INSERT INTO People ( PersonFirstName, PersonLastName, PersonAge, Id_Street ) VALUES ("Андрей", "Серый", "40", "7");
 
 _____________________________________________________________________________________________
 1. 
@@ -72,7 +72,7 @@ SELECT DISTINCT PersonLastName FROM People ORDER BY PersonLastName ;
 SELECT PersonLastName, COUNT(*) FROM People GROUP BY PersonLastName ;
 
 5.
-SELECT PersonLastName FROM People WHERE PersonLastName LIKE '_%б%_';
+SELECT PersonLastName FROM People WHERE PersonLastName LIKE "_%б%_";
 
 6.
 SELECT * FROM People WHERE Id_Street IS NULL ;
@@ -81,20 +81,13 @@ SELECT * FROM People WHERE Id_Street IS NULL ;
 SELECT People.* 
 FROM People 
 JOIN Streets ON People.Id_Street = Streets.StreetID
-WHERE Streets.streetName LIKE '%Правды%' AND People.PersonAge < 18 ;
+WHERE Streets.streetName LIKE "%Правды%" AND People.PersonAge < 18 ;
 
 8.
-SELECT Streets.streetId, Streets.streetName, COUNT(People.personID) 
-FROM Streets 
-JOIN People ON Streets.streetId = People.Id_Street 
-GROUP BY Streets.streetId, Streets.streetName
+SELECT Streets.streetId, Streets.streetName, COUNT(People.personID) FROM Streets JOIN People ON Streets.streetId = People.Id_Street GROUP BY Streets.streetId, Streets.streetName
 
 9.
 SELECT * FROM Streets WHERE LENGTH(streetName) = 6 ;
 
 10.
-SELECT Streets.StreetID, Streets.streetName 
-FROM Streets 
-JOIN People ON Streets.StreetID = People.Id_Street
-GROUP BY Streets.StreetID, Streets.streetName
-HAVING COUNT(People.PersonId) < 3 ;
+SELECT Streets.StreetID, Streets.streetName FROM Streets JOIN People ON Streets.StreetID = People.Id_Street GROUP BY Streets.StreetID, Streets.streetName HAVING COUNT(People.PersonId) < 3 ;
