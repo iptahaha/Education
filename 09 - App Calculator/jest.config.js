@@ -1,12 +1,9 @@
 /*
- * For a detailed explanation regarding each configuration property and type check, visit:
+ * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/configuration
  */
 
-export default {
-
-  preset: "ts-jest",
-  testEnvironment: "node",
+module.exports = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -14,7 +11,7 @@ export default {
   // bail: 0,
 
   // The directory where Jest should store its cached dependency information
-  // cacheDirectory: "C:\\Users\\aleks\\AppData\\Local\\Temp\\jest",
+  // cacheDirectory: "C:\\Users\\NT\\AppData\\Local\\Temp\\jest",
 
   // Automatically clear mock calls, instances and results before every test
   clearMocks: true,
@@ -34,7 +31,7 @@ export default {
   // ],
 
   // Indicates which provider should be used to instrument code for coverage
-  // coverageProvider: "babel",
+  coverageProvider: "v8",
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -140,6 +137,7 @@ export default {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
+  // testEnvironment: "jest-environment-node",
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
