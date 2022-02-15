@@ -1,8 +1,8 @@
 # SQL
 
 Даны две таблицы:
-● Список улиц - Street (Id, Name).
-● Cписок жильцов - Person (Id, FirstName, LastName, Age, Id_Street).
+- Список улиц - Street (Id, Name).
+- Cписок жильцов - Person (Id, FirstName, LastName, Age, Id_Street).
 
 # Задания:
 1. Вывести общее число жителей.
