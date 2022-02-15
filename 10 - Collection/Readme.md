@@ -1,3 +1,5 @@
+# Collections
+
 Реализации:
 
 AList - динамический массив, хранит данные типа Number
@@ -6,8 +8,10 @@ LList - однонаправленный связанный список, хра
 BST - двоичное дерево поиска, хранит данные в виде объекта Node (value,
 right, left) (recursive). AVL-tree + RB-tree (optional)
 Все функции должны быть покрыты тестами!
+
 var IList = function() {}; // function constructor (like interface) инициализация
 коллекции, без аргумента, с аргументом capacity, с аргументом array
+
 IList.prototype.clear = function () {}; // очистка коллекции, size = 0
 IList.prototype.getSize = function () {}; // возвращает размер коллекции,
 количество элементов коллекции, не undefined
