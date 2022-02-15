@@ -1,4 +1,4 @@
-Application “Painter” (Canvas)
+# Application “Painter” (Canvas)
 
 Реализовать приложение Simple Paint.
 Реализовать Simple Paint с применением ООП.
